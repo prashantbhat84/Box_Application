@@ -22,7 +22,7 @@ class Response {
         return res.status(200).json({ status, message, result, errors })
     }
     successReponse(params) {
-
+        console.log('inside success');
         delete this.response.errors
         this.response.message = "Success",
             this.response.status = params.status;

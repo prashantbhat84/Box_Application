@@ -1,6 +1,7 @@
 const boxModel = require('../models/box')
 const Response = require('../utils/Response')
 const response = new Response();
+
 class Box {
     constructor() {
 
