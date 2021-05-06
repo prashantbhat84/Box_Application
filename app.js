@@ -1,12 +1,13 @@
-import express from 'express'
-import cors from 'cors';
-import dotenv from 'dotenv'
-import Response from './utils/Response.js'
-import morgan from 'morgan'
-import connectdb from './config/db.js'
-import router from './routes/routes.js'
+const express = require('express');
+const cors = require('cors')
+const dotenv = require('dotenv')
+const Response = require('./utils/Response')
+const morgan = require('morgan');
+const connectdb = require('./config/db')
+const router = require('./routes/routes')
 dotenv.config({ path: "./config/config.env" });
 connectdb();
+
 const response = new Response()
 const { errorResponse } = response
 
@@ -15,10 +16,11 @@ const corsOptions = {
     methods: ["POST", "GET", "PUT"]
 }
 const app = express();
+app.use(express.json())
 app.use(cors(corsOptions));
 app.use((req, res, next) => {
     // console.log(req.hostname, req.headers, req.path);
-    console.log('inside method validator');
+
     const allowedMethods = ["POST", "GET", "PUT"];
     if (!allowedMethods.includes(req.method)) {
         errorResponse({ status: 400, message: "Failure", result: `${req.method} method is not allowed`, res })
@@ -38,4 +40,4 @@ process.on("uncaughtException", (req, res) => {
 })
 
 
-export default app;
+module.exports = app;

@@ -1,8 +1,5 @@
-import express from 'express';
-import nodemailer from 'nodemailer';
+const express = require('express');
 const userRouter = express.Router();
-
-
 
 userRouter.get("/", async (req, res) => {
     try {
@@ -14,5 +11,5 @@ userRouter.get("/", async (req, res) => {
     }
 });
 
-export default userRouter;
+module.exports = userRouter;
 

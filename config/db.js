@@ -1,11 +1,10 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose')
 global.mongoose = mongoose
 
 
 const connectdb = async () => {
-
     try {
-        await mongoose.connect(`mongodb+srv://${process.env.mongouser}:${process.env.mongopassword}@box-test.ocogl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, {
+        await mongoose.connect(`mongodb+srv://${process.env.mongouser}:${process.env.mongopassword}@box-test.ocogl.mongodb.net/gariyasibox?retryWrites=true&w=majority`, {
             useNewUrlParser: true,
             useCreateIndex: true,
             useFindAndModify: false,
@@ -19,4 +18,4 @@ const connectdb = async () => {
     }
 
 }
-export default connectdb;
+module.exports = connectdb;
