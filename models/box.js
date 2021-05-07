@@ -15,7 +15,13 @@ const boxschema = mongoose.Schema({
     users: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: User
-    }]
+    }],
+    registrationStatus: {
+        type: String,
+        default: "UNREGISTERED",
+        enum: ["UNREGISTERED", "REGISTERED"]
+    }
+
 
 }, { timestamps: true });
 

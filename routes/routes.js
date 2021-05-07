@@ -1,7 +1,8 @@
 
-const userRouter = require('../routes/user');
+const userRouter = require('./user');
 const boxRouter = require('./box')
-const customerRouter = require('./customer')
+const utilsRouter = require("./utils")
+
 const express = require('express');
 
 const router = express.Router();
@@ -9,7 +10,8 @@ const router = express.Router();
 
 router.use("/user", userRouter);
 router.use("/box", boxRouter);
-router.use("/customer", customerRouter)
+router.use("/utils", utilsRouter)
+
 
 
 
