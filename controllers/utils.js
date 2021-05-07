@@ -45,9 +45,14 @@ class Utils {
         const str = req.query.boxid
         const strarray1 = Array.from(str);
         const arraylength = strarray1.length;
-        const hmac = getHmacKeyArray(strarray1, arraylength)
-        const aeskey = getEncryptedAESKey(strarray1, arraylength);
-        response.successReponse({ status: 200, result: { encryptedKey: aeskey, hmac, outputsize: aeskey.length, inputsize: arraylength }, res })
+        if (arraylength === 8) {
+            const hmac = getHmacKeyArray(strarray1, arraylength)
+            const aeskey = getEncryptedAESKey(strarray1, arraylength);
+            response.successReponse({ status: 200, result: { encryptedKey: aeskey, hmac, outputsize: aeskey.length, inputsize: arraylength }, res })
+        } else {
+            response.errorResponse({ status: 400, result: "Input data Byte size should be 8" })
+        }
+
     }
 
 }

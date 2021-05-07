@@ -19,7 +19,7 @@ class Response {
         this.response.result = params.result
         this.response.errors = params.errors;
         const res = params.res;
-        return res.status(200).json({ status, message, result, errors })
+        return res.status(200).json(this.response)
     }
     successReponse(params) {
         console.log('inside success');
