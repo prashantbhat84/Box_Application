@@ -22,13 +22,17 @@ class Response {
         return res.status(200).json({ status, message, result, errors })
     }
     successReponse(params) {
-
+        console.log('inside success');
         delete this.response.errors
         this.response.message = "Success",
             this.response.status = params.status;
         this.response.result = params.result
         const res = params.res
         return res.status(200).json(this.response)
+    }
+    getConvertedVal(input) {
+        return ("0x" + input.charCodeAt(0).toString(16))
+
     }
 
 }

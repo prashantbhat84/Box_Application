@@ -1,15 +1,11 @@
 const express = require('express');
 const userRouter = express.Router();
+const User = require("../controllers/user");
+const user = new User();
 
-userRouter.get("/", async (req, res) => {
-    try {
+userRouter.post("/create", user.createUser);
 
-        res.send("mail sent")
-    } catch (error) {
-        console.log(error.stack);
-        res.send(error.message)
-    }
-});
+
 
 module.exports = userRouter;
 

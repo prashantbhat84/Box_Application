@@ -7,7 +7,7 @@ const connectdb = require('./config/db')
 const router = require('./routes/routes')
 dotenv.config({ path: "./config/config.env" });
 connectdb();
-
+global.express = express;
 const response = new Response()
 const { errorResponse } = response
 

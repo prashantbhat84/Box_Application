@@ -25,12 +25,6 @@ const userschema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: Box
     }],
-    registrationStatus: {
-        type: String,
-        required: true,
-        enum: ["REGISTERED", "UNREGISTERED"]
-    },
-
 
 }, {
     timestamps: true

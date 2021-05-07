@@ -6,6 +6,7 @@ const boxRouter = express.Router();
 
 
 boxRouter.post("/create", boxController.createBox)
+boxRouter.get("/list", boxController.listBoxes)
 
 
 

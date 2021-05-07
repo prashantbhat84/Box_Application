@@ -1,6 +1,7 @@
 const boxModel = require('../models/box')
 const Response = require('../utils/Response')
 const response = new Response();
+
 class Box {
     constructor() {
 
@@ -17,8 +18,15 @@ class Box {
 
         }
     }
-    _testmethod() {
-        console.log('test');
+    async listBoxes(req, res, next) {
+        try {
+            const boxList = await boxModel.find();
+            response.successReponse({ status: 200, result: boxList, res })
+        } catch (error) {
+            response.errorResponse({ status: 400, errors: error.stack, result: error.message, res })
+
+        }
+
     }
 
 }
