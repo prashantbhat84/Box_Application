@@ -30,10 +30,7 @@ class Response {
         const res = params.res
         return res.status(200).json(this.response)
     }
-    getConvertedVal(input) {
-        return ("0x" + input.charCodeAt(0).toString(16))
 
-    }
 
 }
 module.exports = Response;
