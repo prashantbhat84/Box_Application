@@ -28,6 +28,21 @@ class Box {
         }
 
     }
+    async updateBox(req, res, next) {
+        try {
+            // const box= await boxModel.findOne({boxid:req.query.boxid});
+            const time = new Date().getMinutes();
+            const seconds = new Date().getSeconds;
+            const ms = new Date().getMilliseconds();
+            console.log({ time, seconds, ms });
+            response.successReponse({ status: 200, result: "done", res })
+
+
+
+        } catch (error) {
+
+        }
+    }
 
 }
 module.exports = Box

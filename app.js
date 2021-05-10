@@ -23,20 +23,20 @@ app.use((req, res, next) => {
 
     const allowedMethods = ["POST", "GET", "PUT"];
     if (!allowedMethods.includes(req.method)) {
-        errorResponse({ status: 400, message: "Failure", result: `${req.method} method is not allowed`, res })
+        errorResponse({ status: 400, result: `${req.method} method is not allowed`, res })
 
     }
     next();
 })
 
-app.use("/", router);
+app.use("/api", router);
 
 
 
 process.on("uncaughtException", (req, res) => {
 
     process.exitCode(1);
-    errorResponse({ status: 400, message: "Failure", result: "Process exited due to unhandled exception", res })
+    errorResponse({ status: 400, result: "Process exited due to unhandled exception", res })
 })
 
 

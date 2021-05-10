@@ -50,7 +50,7 @@ class Utils {
             const aeskey = getEncryptedAESKey(strarray1, arraylength);
             response.successReponse({ status: 200, result: { encryptedKey: aeskey, hmac, outputsize: aeskey.length, inputsize: arraylength }, res })
         } else {
-            response.errorResponse({ status: 400, result: "Input data Byte size should be 8" })
+            response.errorResponse({ status: 400, result: "Input Data Byte size should be 8" })
         }
 
     }

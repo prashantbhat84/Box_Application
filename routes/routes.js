@@ -8,9 +8,9 @@ const express = require('express');
 const router = express.Router();
 
 
-router.use("/user", userRouter);
-router.use("/box", boxRouter);
-router.use("/utils", utilsRouter)
+router.use("/v1/user", userRouter);
+router.use("/v1/box", boxRouter);
+router.use("/v1/utils", utilsRouter)
 
 
 
